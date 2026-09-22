@@ -1,0 +1,9 @@
+# Cache locale di Godot (rigenerata automaticamente all'apertura del progetto)
+.godot/
+
+# Export web generato dalla CI (pubblicato sul branch web-build, non su main)
+/web-build/
+
+# File di sistema
+.DS_Store
+Thumbs.db
