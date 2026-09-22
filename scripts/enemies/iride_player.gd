@@ -30,7 +30,7 @@ func _update_behavior(delta: float) -> void:
 		return
 
 	if _target != null and is_instance_valid(_target):
-		var same_level := abs(_target.global_position.y - global_position.y) < 24.0
+		var same_level: bool = abs(_target.global_position.y - global_position.y) < 24.0
 		if same_level:
 			_face(int(sign(_target.global_position.x - global_position.x)))
 			_is_charging = true
