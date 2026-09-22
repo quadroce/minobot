@@ -6,6 +6,19 @@ extends CanvasLayer
 @onready var _score_label: Label = $Margin/VBox/ScoreLabel
 @onready var _ammo_label: Label = $Margin/VBox/AmmoLabel
 @onready var _boss_bar: ProgressBar = $Margin/VBox/BossBar
+@onready var _pause_label: Label = $PauseLabel
+
+var _is_paused_by_menu: bool = false
+
+
+func _process(_delta: float) -> void:
+	if not Input.is_action_just_pressed("pause_game"):
+		return
+	if get_tree().paused and not _is_paused_by_menu:
+		return # il gioco e' fermo per game over/vittoria, non per pausa manuale
+	_is_paused_by_menu = not _is_paused_by_menu
+	get_tree().paused = _is_paused_by_menu
+	_pause_label.visible = _is_paused_by_menu
 
 
 func _ready() -> void:
