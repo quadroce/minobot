@@ -6,6 +6,7 @@ extends Node2D
 const END_SCREEN_SCENE := preload("res://scenes/ui/EndScreen.tscn")
 
 @onready var _goal: Area2D = $Goal
+@onready var _music: AudioStreamPlayer = $Music
 
 var _end_screen: CanvasLayer = null
 
@@ -18,6 +19,7 @@ func _ready() -> void:
 	_goal.collision_mask = 0
 	_goal.set_collision_mask_value(2, true) # player
 	_goal.body_entered.connect(_on_goal_entered)
+	_music.finished.connect(_music.play) # loop manuale: la risorsa importata non e' impostata come loop
 
 
 func _on_goal_entered(body: Node2D) -> void:

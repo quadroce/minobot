@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3]
+[gd_scene load_steps=21 format=3]
 
 [ext_resource type="Script" path="res://scripts/level/level.gd" id="1"]
 [ext_resource type="Script" path="res://scripts/level/tiling_background.gd" id="15"]
@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" path="res://assets/sprites/backgrounds/field.png" id="13"]
 [ext_resource type="Texture2D" path="res://assets/sprites/backgrounds/clubhouse.png" id="14"]
 [ext_resource type="PackedScene" path="res://scenes/ui/MobileControls.tscn" id="16"]
+[ext_resource type="AudioStream" path="res://assets/audio/music/theme.mp3" id="17"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ground"]
 size = Vector2(2540, 20)
@@ -178,3 +179,8 @@ polygon = PackedVector2Array(-4, -40, 4, -40, 4, 40, -4, 40)
 [node name="HUD" parent="." instance=ExtResource("11")]
 
 [node name="MobileControls" parent="." instance=ExtResource("16")]
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("17")
+volume_db = -6.0
+autoplay = true
