@@ -6,7 +6,7 @@
 layer = 5
 
 [node name="LeftButton" type="TouchScreenButton" parent="."]
-position = Vector2(26, 140)
+position = Vector2(24, 132)
 scale = Vector2(0.5, 0.5)
 texture_normal = ExtResource("1")
 action = "move_left"
@@ -20,7 +20,7 @@ theme_override_font_sizes/font_size = 10
 text = "◀"
 
 [node name="RightButton" type="TouchScreenButton" parent="."]
-position = Vector2(74, 140)
+position = Vector2(60, 132)
 scale = Vector2(0.5, 0.5)
 texture_normal = ExtResource("1")
 action = "move_right"
@@ -34,7 +34,7 @@ theme_override_font_sizes/font_size = 10
 text = "▶"
 
 [node name="JumpButton" type="TouchScreenButton" parent="."]
-position = Vector2(280, 128)
+position = Vector2(300, 118)
 scale = Vector2(0.6, 0.6)
 texture_normal = ExtResource("1")
 action = "jump"
@@ -48,7 +48,7 @@ theme_override_font_sizes/font_size = 10
 text = "▲"
 
 [node name="ThrowBallButton" type="TouchScreenButton" parent="."]
-position = Vector2(228, 148)
+position = Vector2(266, 132)
 scale = Vector2(0.45, 0.45)
 texture_normal = ExtResource("1")
 action = "throw_ball"
@@ -62,7 +62,7 @@ theme_override_font_sizes/font_size = 10
 text = "J"
 
 [node name="ThrowSpecialButton" type="TouchScreenButton" parent="."]
-position = Vector2(232, 100)
+position = Vector2(230, 132)
 scale = Vector2(0.45, 0.45)
 texture_normal = ExtResource("1")
 action = "throw_special"
