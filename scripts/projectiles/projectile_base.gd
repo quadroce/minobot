@@ -13,7 +13,7 @@ var direction: int = 1
 var _age: float = 0.0
 var _fall_speed: float = 0.0
 
-@onready var _sprite: Polygon2D = $Sprite
+@onready var _sprite: Sprite2D = $Sprite
 
 
 func _ready() -> void:
