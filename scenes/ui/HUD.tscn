@@ -22,20 +22,20 @@ layout_mode = 2
 [node name="LivesLabel" type="Label" parent="Margin/VBox"]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_font_sizes/font_size = 12
+theme_override_font_sizes/font_size = 8
 text = "Vite: 3"
 
 [node name="ScoreLabel" type="Label" parent="Margin/VBox"]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_font_sizes/font_size = 12
+theme_override_font_sizes/font_size = 8
 text = "Punti: 0"
 
 [node name="AmmoLabel" type="Label" parent="Margin/VBox"]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_font_sizes/font_size = 12
-text = "Salame x0   Grana Padano x0"
+theme_override_font_sizes/font_size = 8
+text = "Salame x0  Grana x0"
 
 [node name="BossBar" type="ProgressBar" parent="Margin/VBox"]
 layout_mode = 2
@@ -49,19 +49,20 @@ show_percentage = false
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -14.0
+offset_top = -22.0
 color = Color(0, 0, 0, 0.45)
 
 [node name="LegendLabel" type="Label" parent="."]
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -14.0
+offset_top = -22.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_font_sizes/font_size = 9
+theme_override_font_sizes/font_size = 7
 horizontal_alignment = 1
 vertical_alignment = 1
-text = "A/D Muovi     Spazio Salta     J Palla     K Speciale     Esc Pausa"
+text = "A/D Muovi   Spazio Salta
+J Palla   K Speciale   Esc Pausa"
 
 [node name="PauseLabel" type="Label" parent="."]
 visible = false
@@ -69,13 +70,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -70.0
+offset_left = -110.0
 offset_top = -14.0
-offset_right = 70.0
+offset_right = 110.0
 offset_bottom = 14.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_font_sizes/font_size = 16
+theme_override_font_sizes/font_size = 9
 horizontal_alignment = 1
 vertical_alignment = 1
 text = "PAUSA
-premi ESC per continuare"
+ESC per continuare"

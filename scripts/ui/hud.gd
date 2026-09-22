@@ -43,7 +43,7 @@ func _on_score_changed(score: int) -> void:
 
 
 func _on_ammo_changed(salami: int, grana: int) -> void:
-	_ammo_label.text = "Salame x%d   Grana Padano x%d" % [salami, grana]
+	_ammo_label.text = "Salame x%d  Grana x%d" % [salami, grana]
 
 
 func _on_boss_started() -> void:
