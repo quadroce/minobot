@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3]
+[gd_scene load_steps=27 format=3]
 
 [ext_resource type="Script" path="res://scripts/level/level.gd" id="1"]
 [ext_resource type="Script" path="res://scripts/level/tiling_background.gd" id="15"]
@@ -17,9 +17,19 @@
 [ext_resource type="Texture2D" path="res://assets/sprites/backgrounds/clubhouse.png" id="14"]
 [ext_resource type="PackedScene" path="res://scenes/ui/MobileControls.tscn" id="16"]
 [ext_resource type="AudioStream" path="res://assets/audio/music/theme.mp3" id="17"]
+[ext_resource type="Texture2D" path="res://assets/sprites/props/goal_post.png" id="18"]
+[ext_resource type="Texture2D" path="res://assets/sprites/tiles/metro.png" id="19"]
+[ext_resource type="Texture2D" path="res://assets/sprites/tiles/grass.png" id="20"]
+[ext_resource type="Texture2D" path="res://assets/sprites/tiles/wood.png" id="21"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ground"]
-size = Vector2(2540, 20)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ground_metro"]
+size = Vector2(840, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ground_field"]
+size = Vector2(890, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ground_clubhouse"]
+size = Vector2(890, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_platform"]
 size = Vector2(64, 16)
@@ -55,16 +65,47 @@ target_height = 240.0
 
 [node name="World" type="Node2D" parent="."]
 
-[node name="Ground" type="StaticBody2D" parent="World"]
+[node name="GroundMetro" type="StaticBody2D" parent="World"]
+position = Vector2(400, 0)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="World/Ground"]
-position = Vector2(1250, 170)
-shape = SubResource("RectangleShape2D_ground")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/GroundMetro"]
+position = Vector2(0, 170)
+shape = SubResource("RectangleShape2D_ground_metro")
 
-[node name="Visual" type="Polygon2D" parent="World/Ground"]
-position = Vector2(1250, 170)
-color = Color(0.235, 0.235, 0.235, 1)
-polygon = PackedVector2Array(-1270, -10, 1270, -10, 1270, 10, -1270, 10)
+[node name="Visual" type="Node2D" parent="World/GroundMetro"]
+position = Vector2(-420, 160)
+script = ExtResource("15")
+texture = ExtResource("19")
+zone_width = 840.0
+target_height = 26.0
+
+[node name="GroundField" type="StaticBody2D" parent="World"]
+position = Vector2(1225, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/GroundField"]
+position = Vector2(0, 170)
+shape = SubResource("RectangleShape2D_ground_field")
+
+[node name="Visual" type="Node2D" parent="World/GroundField"]
+position = Vector2(-445, 160)
+script = ExtResource("15")
+texture = ExtResource("20")
+zone_width = 890.0
+target_height = 26.0
+
+[node name="GroundClubhouse" type="StaticBody2D" parent="World"]
+position = Vector2(2075, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/GroundClubhouse"]
+position = Vector2(0, 170)
+shape = SubResource("RectangleShape2D_ground_clubhouse")
+
+[node name="Visual" type="Node2D" parent="World/GroundClubhouse"]
+position = Vector2(-445, 160)
+script = ExtResource("15")
+texture = ExtResource("21")
+zone_width = 890.0
+target_height = 26.0
 
 [node name="PlatformA1" type="StaticBody2D" parent="World"]
 position = Vector2(300, 135)
@@ -72,9 +113,9 @@ position = Vector2(300, 135)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/PlatformA1"]
 shape = SubResource("RectangleShape2D_platform")
 
-[node name="Visual" type="Polygon2D" parent="World/PlatformA1"]
-color = Color(0.5, 0.5, 0.55, 1)
-polygon = PackedVector2Array(-32, -8, 32, -8, 32, 8, -32, 8)
+[node name="Visual" type="Sprite2D" parent="World/PlatformA1"]
+scale = Vector2(0.07373, 0.07619)
+texture = ExtResource("19")
 
 [node name="PlatformA2" type="StaticBody2D" parent="World"]
 position = Vector2(550, 120)
@@ -82,9 +123,9 @@ position = Vector2(550, 120)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/PlatformA2"]
 shape = SubResource("RectangleShape2D_platform")
 
-[node name="Visual" type="Polygon2D" parent="World/PlatformA2"]
-color = Color(0.5, 0.5, 0.55, 1)
-polygon = PackedVector2Array(-32, -8, 32, -8, 32, 8, -32, 8)
+[node name="Visual" type="Sprite2D" parent="World/PlatformA2"]
+scale = Vector2(0.07373, 0.07619)
+texture = ExtResource("19")
 
 [node name="PlatformB1" type="StaticBody2D" parent="World"]
 position = Vector2(950, 130)
@@ -92,9 +133,9 @@ position = Vector2(950, 130)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/PlatformB1"]
 shape = SubResource("RectangleShape2D_platform")
 
-[node name="Visual" type="Polygon2D" parent="World/PlatformB1"]
-color = Color(0.42, 0.32, 0.2, 1)
-polygon = PackedVector2Array(-32, -8, 32, -8, 32, 8, -32, 8)
+[node name="Visual" type="Sprite2D" parent="World/PlatformB1"]
+scale = Vector2(0.0625, 0.1203)
+texture = ExtResource("20")
 
 [node name="PlatformB2" type="StaticBody2D" parent="World"]
 position = Vector2(1250, 110)
@@ -102,9 +143,9 @@ position = Vector2(1250, 110)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/PlatformB2"]
 shape = SubResource("RectangleShape2D_platform")
 
-[node name="Visual" type="Polygon2D" parent="World/PlatformB2"]
-color = Color(0.42, 0.32, 0.2, 1)
-polygon = PackedVector2Array(-32, -8, 32, -8, 32, 8, -32, 8)
+[node name="Visual" type="Sprite2D" parent="World/PlatformB2"]
+scale = Vector2(0.0625, 0.1203)
+texture = ExtResource("20")
 
 [node name="PlatformB3" type="StaticBody2D" parent="World"]
 position = Vector2(1450, 135)
@@ -112,9 +153,9 @@ position = Vector2(1450, 135)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/PlatformB3"]
 shape = SubResource("RectangleShape2D_platform")
 
-[node name="Visual" type="Polygon2D" parent="World/PlatformB3"]
-color = Color(0.42, 0.32, 0.2, 1)
-polygon = PackedVector2Array(-32, -8, 32, -8, 32, 8, -32, 8)
+[node name="Visual" type="Sprite2D" parent="World/PlatformB3"]
+scale = Vector2(0.0625, 0.1203)
+texture = ExtResource("20")
 
 [node name="PlatformC1" type="StaticBody2D" parent="World"]
 position = Vector2(1850, 130)
@@ -122,9 +163,9 @@ position = Vector2(1850, 130)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/PlatformC1"]
 shape = SubResource("RectangleShape2D_platform")
 
-[node name="Visual" type="Polygon2D" parent="World/PlatformC1"]
-color = Color(0.55, 0.42, 0.28, 1)
-polygon = PackedVector2Array(-32, -8, 32, -8, 32, 8, -32, 8)
+[node name="Visual" type="Sprite2D" parent="World/PlatformC1"]
+scale = Vector2(0.06737, 0.10323)
+texture = ExtResource("21")
 
 [node name="Minobot" parent="." instance=ExtResource("2")]
 position = Vector2(40, 146)
@@ -172,9 +213,10 @@ position = Vector2(2450, 145)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Goal"]
 shape = SubResource("RectangleShape2D_goal")
 
-[node name="Visual" type="Polygon2D" parent="Goal"]
-color = Color(0.85, 0.85, 0.2, 0.8)
-polygon = PackedVector2Array(-4, -40, 4, -40, 4, 40, -4, 40)
+[node name="Visual" type="Sprite2D" parent="Goal"]
+position = Vector2(0, 0)
+scale = Vector2(0.21898, 0.21898)
+texture = ExtResource("18")
 
 [node name="HUD" parent="." instance=ExtResource("11")]
 

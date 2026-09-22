@@ -4,12 +4,16 @@ extends CanvasLayer
 
 @onready var _message_label: Label = $Margin/VBox/MessageLabel
 @onready var _hint_label: Label = $Margin/VBox/HintLabel
+@onready var _fireworks: TextureRect = $FireworksBackground
+@onready var _dim_overlay: ColorRect = $Background
 
 
-func setup(message: String, _victory: bool) -> void:
+func setup(message: String, victory: bool) -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	_message_label.text = message
 	_hint_label.text = "Premi INVIO\nper tornare al menu"
+	_fireworks.visible = victory
+	_dim_overlay.color.a = 0.45 if victory else 0.85
 
 
 func _process(_delta: float) -> void:
