@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3]
+[gd_scene load_steps=6 format=3]
 
 [ext_resource type="Script" path="res://scripts/enemies/jean_francois.gd" id="1"]
 [ext_resource type="PackedScene" path="res://scenes/projectiles/Vegetable.tscn" id="2"]
+[ext_resource type="Texture2D" path="res://assets/sprites/characters/jean_francois.png" id="3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_body"]
 size = Vector2(24, 36)
@@ -22,13 +23,9 @@ volley_spread = 40.0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_body")
 
-[node name="Sprite" type="Polygon2D" parent="."]
-color = Color(0.941, 0.902, 0.824, 1)
-polygon = PackedVector2Array(-12, -18, 12, -18, 12, 18, -12, 18)
-
-[node name="Hat" type="Polygon2D" parent="."]
-color = Color(0.1, 0.1, 0.1, 1)
-polygon = PackedVector2Array(-8, -26, 8, -26, 8, -18, -8, -18)
+[node name="Sprite" type="Sprite2D" parent="."]
+position = Vector2(0, -7)
+texture = ExtResource("3")
 
 [node name="HitArea" type="Area2D" parent="."]
 

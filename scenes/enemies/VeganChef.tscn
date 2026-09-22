@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3]
+[gd_scene load_steps=6 format=3]
 
 [ext_resource type="Script" path="res://scripts/enemies/vegan_chef.gd" id="1"]
 [ext_resource type="PackedScene" path="res://scenes/projectiles/Vegetable.tscn" id="2"]
+[ext_resource type="Texture2D" path="res://assets/sprites/characters/vegan_chef.png" id="3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_body"]
 size = Vector2(16, 24)
@@ -18,13 +19,9 @@ throw_interval = 2.5
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_body")
 
-[node name="Sprite" type="Polygon2D" parent="."]
-color = Color(0.498, 0.682, 0.416, 1)
-polygon = PackedVector2Array(-8, -12, 8, -12, 8, 12, -8, 12)
-
-[node name="Hat" type="Polygon2D" parent="."]
-color = Color(0.97, 0.97, 0.95, 1)
-polygon = PackedVector2Array(-6, -18, 6, -18, 6, -12, -6, -12)
+[node name="Sprite" type="Sprite2D" parent="."]
+position = Vector2(0, -5)
+texture = ExtResource("3")
 
 [node name="HitArea" type="Area2D" parent="."]
 

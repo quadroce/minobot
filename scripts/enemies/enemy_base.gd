@@ -18,7 +18,7 @@ var direction: int = -1
 var is_dead: bool = false
 var _patrol_origin_x: float = 0.0
 
-@onready var sprite: Polygon2D = $Sprite
+@onready var sprite: Sprite2D = $Sprite
 @onready var _hit_area: Area2D = $HitArea
 @onready var _wall_ray: RayCast2D = $WallRay
 

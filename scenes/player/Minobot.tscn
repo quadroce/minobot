@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" path="res://scenes/projectiles/RugbyBall.tscn" id="2"]
 [ext_resource type="PackedScene" path="res://scenes/projectiles/Salami.tscn" id="3"]
 [ext_resource type="PackedScene" path="res://scenes/projectiles/GranaPadano.tscn" id="4"]
+[ext_resource type="Texture2D" path="res://assets/sprites/characters/minobot.png" id="5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_body"]
 size = Vector2(14, 28)
@@ -17,21 +18,9 @@ grana_padano_scene = ExtResource("4")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_body")
 
-[node name="Sprite" type="Polygon2D" parent="."]
-color = Color(0.478, 0.122, 0.239, 1)
-polygon = PackedVector2Array(-7, -6, 7, -6, 7, 8, -7, 8)
-
-[node name="Head" type="Polygon2D" parent="."]
-color = Color(0.949, 0.788, 0.627, 1)
-polygon = PackedVector2Array(-5, -14, 5, -14, 5, -6, -5, -6)
-
-[node name="Stripe" type="Polygon2D" parent="."]
-color = Color(0.604, 0.604, 0.604, 1)
-polygon = PackedVector2Array(-7, -1, 7, -1, 7, 2, -7, 2)
-
-[node name="Shorts" type="Polygon2D" parent="."]
-color = Color(0.063, 0.063, 0.063, 1)
-polygon = PackedVector2Array(-7, 8, 7, 8, 7, 14, -7, 14)
+[node name="Sprite" type="Sprite2D" parent="."]
+position = Vector2(0, -5.5)
+texture = ExtResource("5")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position_smoothing_enabled = true

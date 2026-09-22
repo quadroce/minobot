@@ -25,7 +25,7 @@ var _slow_pulse_time_left: float = 0.0
 var _in_slow_aura: bool = false
 var _is_dead: bool = false
 
-@onready var _sprite: Polygon2D = $Sprite
+@onready var _sprite: Sprite2D = $Sprite
 
 
 func _ready() -> void:
