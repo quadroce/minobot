@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/projectiles/player_projectile.gd" id="1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_salami"]
+size = Vector2(12, 6)
+
+[node name="Salami" type="Area2D"]
+script = ExtResource("1")
+speed = 260.0
+damage = 2
+lifetime = 2.0
+arc_gravity = 220.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_salami")
+
+[node name="Sprite" type="Polygon2D" parent="."]
+color = Color(0.71, 0.271, 0.114, 1)
+polygon = PackedVector2Array(-6, -3, 6, -3, 6, 3, -6, 3)
